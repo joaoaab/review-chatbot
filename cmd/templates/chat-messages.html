@@ -1,0 +1,22 @@
+<div class="col-start-1 col-end-8 p-3 rounded-lg" id="chat-log" hx-get="/chat-log" hx-trigger="every 2s" hx-swap="outerHTML">
+{{range .Messages}}
+    {{if .IsUserMessage}}
+        <div class="col-start-6 col-end-13 p-3 rounded-lg mt-4">
+            <div class="flex items-center justify-start flex-row-reverse">
+                <div
+                        class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
+                    <div>{{.Text}}</div>
+                    <div class="absolute text-xs bottom-0 right-0 -mb-5 mr-2 text-gray-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{else}}
+        <div class="flex flex-row items-center mt-4">
+            <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+                <div>{{.Text}}</div>
+            </div>
+        </div>
+    {{end}}
+{{end}}
+</div>
